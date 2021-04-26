@@ -16,6 +16,7 @@ const router = createRouter({
     { 
       name: 'temas',
       path: '/teams',
+      meta: { needsAuth: true },
       components: { default: TeamsList, footer: TeamsFooter }, // router-view name 이 없는 것은 default 로 들어가고, footer 키 컴포넌트는 name 이 footer 인 곳으로 들어감.
       children: [
         { name: 'team-members', path: ':teamId', component: TeamMembers, props: true },
@@ -48,6 +49,12 @@ const router = createRouter({
 router.beforeEach(function(to, from, next) {
   console.log('Global beforeEach');
   console.log(to, from);
+  if (to.meta.needsAuth) {
+    console.log('Needs Auth!');
+    next();
+  } else {
+    next();
+  }
   // if (to.name === 'team-members') {
   //   next();
   // } else {
