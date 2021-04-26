@@ -45,6 +45,12 @@ export default {
     this.loadTeamMembers(this.teamId);
     console.log(this.$route.query);
   },
+  beforeRouteUpdate(to, from, next) {
+    console.log('TeamMembers Cmp beforeRouteUpdate');
+    console.log(to, from);
+    // this.loadTeamMembers(to.params.teamId); watch 를 대체할 수 있으나 router 를 이용하는 곳에서만 사용 가능.
+    next();
+  },
   watch: {
     teamId(newId) {
       this.loadTeamMembers(newId);
