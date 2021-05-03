@@ -1,6 +1,6 @@
-<!--<template>-->
-
-<!--</template>-->
+<template>
+  REQUESTS
+</template>
 
 <script>
 export default {

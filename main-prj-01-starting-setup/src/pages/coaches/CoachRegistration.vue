@@ -1,6 +1,6 @@
-<!--<template>-->
-
-<!--</template>-->
+<template>
+  REGISTER
+</template>
 
 <script>
 export default {
