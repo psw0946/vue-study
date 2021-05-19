@@ -4,15 +4,17 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import { computed, inject } from 'vue';
 
 export default {
   name: 'UserData',
-  props: ['firstName', 'lastName', 'age'],
+  props: ['firstName', 'lastName'],
   setup(props, context) {
     const uName = computed(function() {
       return props.firstName + ' ' + props.lastName;
     });
+
+    const age = inject('userAge');
 
     console.log(context);
     // context.emit('save-data', 1); 사용 가능
@@ -20,6 +22,7 @@ export default {
 
     return {
       userName: uName,
+      age,
     };
   },
   // computed: {
